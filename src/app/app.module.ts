@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { AlunoComponent } from './components/aluno/aluno.component';
+import { CursoComponent } from './components/curso/curso.component';
 
 registerLocaleData(localePt);
 
@@ -21,7 +23,9 @@ registerLocaleData(localePt);
   declarations: [
     AppComponent,
     MatriculasNewComponent,
-    MatriculasListComponent
+    MatriculasListComponent,
+    AlunoComponent,
+    CursoComponent
   ],
   imports: [
     BrowserModule,

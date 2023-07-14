@@ -5,37 +5,25 @@
 
         <hr class="my-2">
 
-        <form class="row g-2">
             <div class="col-mb-3">
                 <label for="iData" class="form-label">Data</label>
                 <input type="date" class="form-control" id="iData">
             </div>
             <div class="col md-9">
                 <label for="Ialuno" class="form-label">Aluno</label>
-                <select id="Ialuno" class="form-select">
-                  <option selected>Choose...</option>
-                  <option>...</option>  
+                <select id="Ialuno" class="form-select" [(ngModel)]="aluno">
+                  <option *ngFor="let c of alunos" [ngValue]="c">{{c.name}}</option>  
                 </select>             
-            </div>
-            <div class="col-12">
-                <label for="IdAluno" class="form-label">Id do Aluno</label>
-                <input type="text" class="form-control" id="IdAluno">
             </div>
             <div class="col-mb-3">
                 <label for="Icurso" class="form-label">Curso</label>
-                <select id="Ialuno" class="form-select">
-                   <option selected>Choose...</option>
-                   <option>...</option>  
+                <select id="Ialuno" class="form-select" [(ngModel)]="curso">
+                   <option *ngFor="let c of cursos" [ngValue]="c">{{c.nome}}</option>  
                 </select>
             </div>
-            <div class="col-12">
-                <label for="Idescricao" class="form-label">Id do Curso</label>
-                <input type="text" class="form-control" id="IdCurso">
-            </div>
             <div class="d-grid gap-2 d-mb-flex">
-                <button class="btn btn-outline-primary me-db-2">Confirmar</button>
-                <a routerLink="/matriculas" class="btn btn-outline-second">Cancelar</a>
+                <button class="btn btn-outline-primary me-db-2" (click)="save()">Confirmar</button>
+                <a routerLink="/matriculas" class="btn btn-light">Voltar</a>
             </div>
-        </form>
     </div>
 </div>
