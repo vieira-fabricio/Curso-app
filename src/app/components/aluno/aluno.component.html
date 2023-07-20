@@ -1,1 +1,28 @@
-<p>aluno works!</p>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-6">Alunos</h1>
+        <p class="load-1">Cadastro de Alunos</p>
+        <hr class="my-2">
+    </div>
+    <div class="row g-2">
+        <div class="col-5">
+            <input class="form-control" id="Inome" placeholder="Nome do Aluno" [(ngModel)]="name" type="text">
+        </div>
+        <div class="col-md-3">
+            <input class="form-control" id="Icpf" [(ngModel)]="cpf" placeholder="CPF">
+        </div>
+        <div class="col-3">
+            <div class="d-grid gap-2 d-mb-flex">
+                <button class="btn btn-outline-primary me-md-2" type="button" (click)="save()">Gravar</button>
+                <a class="btn btn-outline-danger" routerLink="/matriculas">Voltar</a>
+            </div>
+        </div>
+    </div>
+    <p></p>
+    <div *ngFor="let item of alunos; index as i" class="card">
+        <div class="card-body">
+            <h5 class="card-little">Nome: {{item.name}}</h5>
+            <p class="card-text">CPF: {{item.cpf}}</p>
+        </div>
+    </div>
+</div>

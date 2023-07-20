@@ -1,6 +1,26 @@
 <a class="btn btn-light btn-sm" routerLink="/matriculas-new">Nova Matrícula</a>
-<h2>Lista de Matrículas</h2>
-<table class="table table-striped">
+<a class="btn btn-light btn-sm" routerLink="/alunos">Novo Aluno</a>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-6">Matrículas</h1>
+        <p class="lead-1">Listagem de matrículas por aluno</p>
+        <hr class="my-2">
+        <div class="input-group">
+            <select id="Ialuno" [(ngModel)]="aluno" class="form-select">
+               <option *ngFor="let c of alunos" [ngValue]="c">{{c.name}}</option> 
+            </select>           
+        </div>
+        <div class="btn">
+          <button class="btn btn-light me-md-2 btn-sm" type="button" (click)="listMatriculas()">Buscar</button>
+          <a class="btn btn-light btn-sm" routerLink="/matriculas-new">Nova Matrícula</a>
+          <a class="btn btn-light btn-sm" routerLink="/alunos">Alunos</a>  
+        </div>
+        
+    </div>
+</div>
+
+<div class="container">
+   <table class="table table-striped">
     
     <thead>
         <tr>
@@ -22,4 +42,6 @@
         </tr>
     </tbody>
 
-</table>
+   </table> 
+</div>
+

@@ -21,7 +21,7 @@
                    <option *ngFor="let c of cursos" [ngValue]="c">{{c.nome}}</option>  
                 </select>
             </div>
-            <div class="d-grid gap-2 d-mb-flex">
+            <div class="d-grid gap-2 col-6 mx-auto">
                 <button class="btn btn-outline-primary me-db-2" (click)="save()">Confirmar</button>
                 <a routerLink="/matriculas" class="btn btn-light">Voltar</a>
             </div>

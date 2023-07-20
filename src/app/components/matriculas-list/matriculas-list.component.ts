@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlunoService } from 'src/app/services/aluno.service';
 import { MatriculasService } from 'src/app/services/matriculas.service';
 
 @Component({
@@ -9,20 +10,38 @@ import { MatriculasService } from 'src/app/services/matriculas.service';
 export class MatriculasListComponent implements OnInit {
 
   matriculas:any;
+  alunos: any;
+  aluno:any;
 
-  constructor(private matriculaService: MatriculasService){
+  constructor(
+    private matriculaService: MatriculasService,
+    private alunoService: AlunoService
+    ){
   }
 
   ngOnInit(): void {
-      this.listMatriculas();
+    this.exibirAlunos();
+  }
+
+  exibirAlunos(): void {
+    this.alunoService.list()
+        .subscribe(
+          data => {
+            this.alunos = data;
+            console.log(data);
+          },
+          error => {
+            console.log(error);
+          });
   }
 
   listMatriculas(): void {
-    this.matriculaService.list()
+    this.matriculaService.findByAluno(this.aluno)
         .subscribe(
           data => {
             this.matriculas = data;
             console.log(data);
+            console.log(this.aluno)
           },
           error => {
             console.log(error);

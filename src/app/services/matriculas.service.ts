@@ -19,4 +19,8 @@ export class MatriculasService {
   create(matricula: any): Observable<any>{
     return this.http.post(`${baseUrl}/matriculas/`, matricula);
   }
+
+  findByAluno(aluno:any): Observable<any>{
+    return this.http.get(`${baseUrl}/matriculas/findByAluno/${aluno.name}`);
+  }
 }

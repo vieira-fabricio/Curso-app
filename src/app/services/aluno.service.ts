@@ -9,6 +9,10 @@ const baseUrl = 'http://localhost:8080';
 })
 export class AlunoService {
 
+  create(aluno: any): Observable<any> {
+    return this.http.post(`${baseUrl}/alunos/`, aluno)
+  }
+
   constructor(private http: HttpClient) { }
 
   list(): Observable<any>{
